@@ -65,9 +65,11 @@
             console.log(ev);
             console.log(ev.detail);
             console.log(ev.detail.intersectedEl)
+            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             //const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
         //if (nextButton && intersectedElement === nextButton){
             //a counter that keeps track of our place in the carousel
+            if (nextButton && intersectedElement === nextButton) {
             if (typeof(Storage) !== "undefined") {
               if (sessionStorage.clickcount) {
                 if(sessionStorage.clickcount == 6)
@@ -85,7 +87,7 @@
 
             dynamicText.setAttribute("value", sceneMatrix[sessionStorage.clickcount].text);
             nextButton.setAttribute("material", sceneMatrix[sessionStorage.clickcount].nextButtonImg);
-          
+          }
          // }
           });
       }});
@@ -113,7 +115,9 @@
    
         
       </a-marker>
-      <a-entity camera></a-entity>
+      <a-entity camera>
+     
+      </a-entity>
     </a-scene>
   </body>
 </html>
