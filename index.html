@@ -16,7 +16,7 @@
     //simple onclick say hello for any component
     AFRAME.registerComponent('markerhandler', {
       init: function() {
-          const dynamicNextButton = document.querySelector("#dynamic-next-button");
+          const nextButton = document.querySelector("#dynamic-next-button");
           const dynamicModel = document.querySelector("#dynamic-model")
           const dynamicText = document.querySelector('#dynamic-text');
 
@@ -25,7 +25,37 @@
               model: "src: url(objects/mem_movement_test2.gltf);",
               nextButtonImg: "src: url(pngs/start.png);",
               text: "test0",
-            }
+            },
+            {
+              model: "src: url(objects/mem_movement_test2.gltf);",
+              nextButtonImg: "src: url(pngs/continue.png);",
+              text: "test1",
+            },
+            {
+              model: "src: url(objects/mem_movement_test2.gltf);",
+              nextButtonImg: "src: url(pngs/continue.png);",
+              text: "test2",
+            },
+            {
+              model: "src: url(objects/mem_movement_test2.gltf);",
+              nextButtonImg: "src: url(pngs/continue.png);",
+              text: "test3",
+            },
+            {
+              model: "src: url(objects/mem_movement_test2.gltf);",
+              nextButtonImg: "src: url(pngs/continue.png);",
+              text: "test4",
+            },
+            {
+              model: "src: url(objects/mem_movement_test2.gltf);",
+              nextButtonImg: "src: url(pngs/continue.png);",
+              text: "test5",
+            },
+            {
+              model: "src: url(objects/mem_movement_test2.gltf);",
+              nextButtonImg: "src: url(pngs/restart.png);",
+              text: "test6",
+            },
           ]
 
          
@@ -47,8 +77,8 @@
             }}
 
 
-            dynamicText.setAttribute("value", sceneMatrix[0].text);
-            dynamicNextButton.setAttribute("material", sceneMatrix[0].nextButtonImg);
+            dynamicText.setAttribute("value", sceneMatrix[sessionStorage.clickcount].text);
+            nextButton.setAttribute("material", sceneMatrix[sessionStorage.clickcount].nextButtonImg);
             
           });
       }});
