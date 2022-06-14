@@ -42,28 +42,19 @@
            <a-asset-item id="tree-mtl" src="objects/mem.mtl"></a-asset-item>
       </a-assets>
       <a-marker type="barcode" value="0" emitevents="true" id="animated-marker">
-        <a-entity
+       
         
-          
-          position="1 0 -.25"
-          scale="0.2 0.2 0.2"
-          rotation="0 -90 0"
-          id="animated-model"
-          gltf-model="objects/mem.gltf"
-        >
 
-        <a-text value="Hello, World!"
-        scale="10 10 10"
-        position="-5 7 0"
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.2 0.2 0.2" rotation="0 -90 0" position="1 0 -.25"></a-entity>
+
+
+        <a-entity geometry="primitive: box; width: 1.2; height: .1; depth: 1.2"  material="src: #my-texture" rotation="0 270 0" markerhandler>
+           <a-text value="Hello, World!"
+        scale="1 1 1"
+        position="0 0 0"
         
         ></a-text>
-        
-      </a-entity>
-
-      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.2 0.2 0.2"></a-entity>
-
-
-        <a-entity geometry="primitive: box; width: 1.2; height: .1; depth: 1.2"  material="src: #my-texture" rotation="0 270 0" markerhandler></a-entity>
+        </a-entity>
 
    
         
