@@ -93,9 +93,9 @@
  
   
   <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;" cursor="rayOrigin: mouse"> 
+    <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> 
       
-      <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" markerhandler>
+      <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" cursor="rayOrigin: mouse" markerhandler>
       
       <a-entity id="dynamic-model" gltf-model="src: url(objects/mem_movement_test2.gltf);" scale=".2 .2 .2" position="0 1.2 0" animation-mixer rotation="0 270 0" >
         <a-text value="Hello, World!"
