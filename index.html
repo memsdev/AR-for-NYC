@@ -5,6 +5,7 @@
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <script src="https://github.com/imaya/zlib.js"></script>
   <script>
     //simple onclick say hello for any component
     AFRAME.registerComponent('markerhandler', {
@@ -45,15 +46,18 @@
        
         
 
-      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.2 0.2 0.2" rotation="0 -90 0" position="1 0 -.25"></a-entity>
-
-
-        <a-entity geometry="primitive: box; width: 1.2; height: .1; depth: 1.2"  material="src: #my-texture" rotation="0 270 0" markerhandler>
-           <a-text value="Hello, World!"
-        scale="1 1 1"
-        position="0 0 0"
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.2 0.2 0.2" rotation="0 -90 0" position="1 0 -.25">
+        <a-text value="Hello, World!"
+        scale="8 8 8"
+        position="-3.5 5 -3"
         
         ></a-text>
+      </a-entity>
+
+      <a-entity gltf-model="src: url(objects/mem_movement_test.fbx);" scale=".2 .2 .2" ></a-entity>
+
+
+        <a-entity geometry="primitive: box; width: 1; height: .1; depth: 1"  material="src: #my-texture" rotation="0 270 0" markerhandler>
         </a-entity>
 
    
