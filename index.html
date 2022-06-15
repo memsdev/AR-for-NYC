@@ -13,6 +13,16 @@
 </script>
     
   <script>
+
+AFRAME.registerComponent('cycle-count', {
+  init: function() {
+      this.el.addEventListener('animation-loop', e => {
+        //alert("ehy")
+          // cycle finished - do whatever you need
+      })
+  }
+})
+
     //simple onclick say hello for any component
     AFRAME.registerComponent('markerhandler', {
       init: function() {
@@ -99,18 +109,28 @@
       
       <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" cursor="rayOrigin: mouse" markerhandler>
       
-      <a-entity id="dynamic-model" gltf-model="src: url(objects/mem_movement_test2.gltf);" scale=".2 .2 .2" position="0 1.2 0" animation-mixer rotation="0 270 0" >
+      <a-entity scale="1 1 1" rotation="0 0 0" position="0 0 0">
+
+        <a-entity id="dynamic-next-button" geometry="primitive: box; width: 1; height: .2; depth: 1"  material="src: #my-texture" rotation="0 270 0">
+        </a-entity>
         <a-text value="Hello, World!"
-        scale="4 4 4"
+        
         position="0 0 0"
         id="dynamic-text"
-        
+          
         ></a-text>
+    
+        
+      <a-entity id="dynamic-model" gltf-model="src: url(objects/mem_movement_test2.gltf);" scale=".5 .5 .5"  position="0 1 0" animation-mixer rotation="0 0 0" cycle-count >
+      
+        
       </a-entity>
+    </a-entity>
+      
+      
 
 
-        <a-entity id="dynamic-next-button" geometry="primitive: box; width: 1; height: .1; depth: 1"  material="src: #my-texture" rotation="0 270 0">
-        </a-entity>
+        
 
    
         
