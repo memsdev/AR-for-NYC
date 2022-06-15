@@ -6,125 +6,119 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   <script src="https://github.com/imaya/zlib.js"></script>
-
-  <script>
-    sessionStorage.clear();
-    sessionStorage.clickcount = 0;
-</script>
     
   <script>
+    sessionStorage.clear();
+    sessionStorage.clickcount = 1;
 
-AFRAME.registerComponent('cycle-count', {
-  init: function() {
-      this.el.addEventListener('animation-loop', e => {
-        //alert("ehy")
-          // cycle finished - do whatever you need
-      })
-  }
-})
 
-    //simple onclick say hello for any component
-    AFRAME.registerComponent('markerhandler', {
-      init: function() {
+          
 
-          const sceneMatrix = [
-            {
-              model: "src: url(objects/mem_movement_test2.gltf);",
-              nextButtonImg: "src: url(pngs/start.png);",
-              text: "test0",
-            },
-            {
-              model: "src: url(objects/mem_movement_test2.gltf);",
-              nextButtonImg: "src: url(pngs/continue.png);",
-              text: "test1",
-            },
-            {
-              model: "src: url(objects/mem_movement_test2.gltf);",
-              nextButtonImg: "src: url(pngs/continue.png);",
-              text: "test2",
-            },
-            {
-              model: "src: url(objects/mem_movement_test2.gltf);",
-              nextButtonImg: "src: url(pngs/continue.png);",
-              text: "test3",
-            },
-            {
-              model: "src: url(objects/mem_movement_test2.gltf);",
-              nextButtonImg: "src: url(pngs/continue.png);",
-              text: "test4",
-            },
-            {
-              model: "src: url(objects/mem_movement_test2.gltf);",
-              nextButtonImg: "src: url(pngs/continue.png);",
-              text: "test5",
-            },
-            {
-              model: "src: url(objects/mem_movement_test2.gltf);",
-              nextButtonImg: "src: url(pngs/restart.png);",
-              text: "test6",
-            },
-          ]
+          
 
-          const animatedMarker = document.querySelector("#animated-marker");
-          const nextButton = document.querySelector("#dynamic-next-button");
-          const dynamicModel = document.querySelector("#dynamic-model")
-          const dynamicText = document.querySelector('#dynamic-text');
-          // every click, we make our model grow in size :)
-          animatedMarker.addEventListener('click', function(ev, target){ 
+        window.onload = function(){
+          setInterval(function(){
             
-            console.log(ev);
-            console.log(ev.detail);
-            console.log(ev.detail.intersectedEl)
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            //const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        //if (nextButton && intersectedElement === nextButton){
-            //a counter that keeps track of our place in the carousel
-            if (nextButton && intersectedElement === nextButton) {
-            if (typeof(Storage) !== "undefined") {
-              if (sessionStorage.clickcount) {
-                if(sessionStorage.clickcount == 6)
-                {
-                  sessionStorage.clickcount = 0;
+              if (typeof(Storage) !== "undefined") {
+                  if (sessionStorage.clickcount) {
+                    if(sessionStorage.clickcount == 3)
+                    {
+                      sessionStorage.clickcount = 1;
+                    }
+                    else
+                    {
+                      sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+                    }
+                  } else {
+                    sessionStorage.clickcount = Number(sessionStorage.clickcount)+1
+                }}
+                
+                //back to front
+                if(sessionStorage.clickcount == 3) {
+                  var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
+                  var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
+                  var nextDynamicModel = document.querySelector("#dynamic-model-1");
+                  var nextDynamicText = document.querySelector('#dynamic-text-1');
+                
+
+                  console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+                  console.log("make " + String(1) + " VISIBLE" );
+
+                  currentDynamicModel.setAttribute("visible", false)
+                  currentDynamicText.setAttribute("visible", false)
+
+                  nextDynamicModel.setAttribute("visible", true)
+                  nextDynamicText.setAttribute("visible", true)
                 }
-                else
-                {
-                  sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+                else {
+                  var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
+                  var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
+                  var nextDynamicModel = document.querySelector("#dynamic-model-" + String(parseInt(sessionStorage.clickcount) + 1));
+                  var nextDynamicText = document.querySelector('#dynamic-text-' + String(parseInt(sessionStorage.clickcount) + 1));
+                
+
+                  console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+                  console.log("make " + String(parseInt(sessionStorage.clickcount) + 1) + " VISIBLE" );
+
+                  currentDynamicModel.setAttribute("visible", false)
+                  currentDynamicText.setAttribute("visible", false)
+
+                  nextDynamicModel.setAttribute("visible", true)
+                  nextDynamicText.setAttribute("visible", true)
+
+              
+
                 }
-              } else {
-                sessionStorage.clickcount = Number(sessionStorage.clickcount)+1
-            }}
+
+                
+                //console.log(dynamicModel);
+                //dynamicModel.setAttribute("gltf-model", sceneMatrix[sessionStorage.clickcount].text);
+                //dynamicModel.setAttribute("visible", !dynamicModel.getAttribute("visible"))
+                //dynamicText.setAttribute("value", "hold");
+                
+          }, 2000);
+};
 
 
-            dynamicText.setAttribute("value", sceneMatrix[sessionStorage.clickcount].text);
-            nextButton.setAttribute("material", sceneMatrix[sessionStorage.clickcount].nextButtonImg);
-          }
-         // }
-          });
-      }});
+
+  
   </script>
  
   
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> 
       
-      <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" cursor="rayOrigin: mouse" markerhandler>
+      <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" markerhandler>
       
       <a-entity scale="1 1 1" rotation="0 0 0" position="0 0 0">
 
-        <a-entity id="dynamic-next-button" geometry="primitive: box; width: 1; height: .2; depth: 1"  material="src: #my-texture" rotation="0 270 0">
-        </a-entity>
+        <a-entity geometry="primitive: box; width: 1; height: .2; depth: 1"  material="shader: flat; color: red; transparent: true" rotation="0 270 0"></a-entity>
+        
+        
+        <a-entity id="dynamic-model-1" gltf-model="src: url(objects/mem_movement_test2.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count ></a-entity>
         <a-text value="Hello, World!"
+          position="-.6 1.9 0"
+          id="dynamic-text-1"
+          ></a-text>
+
+
+        <a-entity id="dynamic-model-2" gltf-model="src: url(objects/mem_movement_test.gltf);" scale=".2 .2 .2"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
+        visible="false"></a-entity>
+        <a-text value="Hello, World2!"
+          position="-.6 1.9 0"
+          id="dynamic-text-2"
+          visible="false"
+          ></a-text>
+
+          <a-entity id="dynamic-model-3" gltf-model="src: url(objects/mem_movement_test.gltf);" scale=".2 .2 .2"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
+          visible="false"></a-entity>
+          <a-text value="Hello, World3!"
+            position="-.6 1.9 0"
+            id="dynamic-text-3"
+            visible="false"
+            ></a-text>
+
         
-        position="0 0 0"
-        id="dynamic-text"
-          
-        ></a-text>
-    
-        
-      <a-entity id="dynamic-model" gltf-model="src: url(objects/mem_movement_test2.gltf);" scale=".5 .5 .5"  position="0 1 0" animation-mixer rotation="0 0 0" cycle-count >
-      
-        
-      </a-entity>
     </a-entity>
       
       
