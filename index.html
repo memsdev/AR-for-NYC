@@ -17,8 +17,9 @@
           
 
         window.onload = function(){
-          setInterval(function(){
-            
+          
+          /*setInterval(function(){
+         
               if (typeof(Storage) !== "undefined") {
                   if (sessionStorage.clickcount) {
                     if(sessionStorage.clickcount == 3)
@@ -76,7 +77,7 @@
                 //dynamicModel.setAttribute("visible", !dynamicModel.getAttribute("visible"))
                 //dynamicText.setAttribute("value", "hold");
                 
-          }, 2000);
+          }, 2000);*/
 };
 
 
@@ -90,19 +91,19 @@
       
       <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" markerhandler>
       
-      <a-entity scale=".5 .5 .5" rotation="0 0 0" position="0 0 0">
+      <a-entity scale="1 1 1" rotation="0 0 0" position="0 0 0">
 
         <a-entity geometry="primitive: box; width: 1; height: .2; depth: 1"  material="shader: flat; color: red; transparent: true" rotation="0 270 0"></a-entity>
         
         
-        <a-entity id="dynamic-model-1" gltf-model="src: url(objects/mem_movement_test2.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count ></a-entity>
+        <a-entity id="dynamic-model-1" gltf-model="src: url(objects/jump.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count ></a-entity>
         <a-text value="Hello, World!"
           position="-.6 1.9 0"
           id="dynamic-text-1"
           ></a-text>
 
 
-        <a-entity id="dynamic-model-2" gltf-model="src: url(objects/mem_movement_test.gltf);" scale=".2 .2 .2"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
+        <a-entity id="dynamic-model-2" gltf-model="src: url(objects/jump.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
         visible="false"></a-entity>
         <a-text value="Hello, World2!"
           position="-.6 1.9 0"
@@ -110,7 +111,7 @@
           visible="false"
           ></a-text>
 
-          <a-entity id="dynamic-model-3" gltf-model="src: url(objects/mem_movement_test.gltf);" scale=".2 .2 .2"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
+          <a-entity id="dynamic-model-3" gltf-model="src: url(objects/jump.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
           visible="false"></a-entity>
           <a-text value="Hello, World3!"
             position="-.6 1.9 0"
