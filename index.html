@@ -96,14 +96,14 @@
         <a-entity geometry="primitive: box; width: 1; height: .2; depth: 1"  material="shader: flat; color: red; transparent: true" rotation="0 270 0"></a-entity>
         
         
-        <a-entity id="dynamic-model-1" gltf-model="src: url(objects/jump.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count ></a-entity>
+        <a-entity id="dynamic-model-1" gltf-model="src: url(objects/scaleToWave.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count ></a-entity>
         <a-text value="Hello, World!"
           position="-.6 1.9 0"
           id="dynamic-text-1"
           ></a-text>
 
 
-        <a-entity id="dynamic-model-2" gltf-model="src: url(objects/jump.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
+        <a-entity id="dynamic-model-2" gltf-model="src: url(objects/backflip.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
         visible="false"></a-entity>
         <a-text value="Hello, World2!"
           position="-.6 1.9 0"
@@ -116,6 +116,22 @@
           <a-text value="Hello, World3!"
             position="-.6 1.9 0"
             id="dynamic-text-3"
+            visible="false"
+            ></a-text>
+
+          <a-entity id="dynamic-model-4" gltf-model="src: url(objects/spin.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
+          visible="false"></a-entity>
+          <a-text value="Hello, World4!"
+            position="-.6 1.9 0"
+            id="dynamic-text-4"
+            visible="false"
+            ></a-text>
+
+          <a-entity id="dynamic-model-5" gltf-model="src: url(objects/waveToScale.gltf);" scale=".5 .5 .5"  position=".8 .2 0" animation-mixer rotation="0 0 0" cycle-count 
+          visible="false"></a-entity>
+          <a-text value="Hello, World3!"
+            position="-.6 1.9 0"
+            id="dynamic-text-5"
             visible="false"
             ></a-text>
 
