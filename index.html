@@ -6,6 +6,18 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   <script src="https://github.com/imaya/zlib.js"></script>
+
+  <style>
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 30;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+  </style>
     
   <script>
     sessionStorage.clear();
@@ -67,7 +79,9 @@
           nextDynamicModel.setAttribute("visible", true)
           nextDynamicText.setAttribute("visible", true)
         }
-})
+      })
+
+      
           
           
 };
@@ -88,14 +102,14 @@
         </button>
     </div>
       <div style='position: fixed; bottom: 100px; width:100%; text-align: center; z-index: 1;'>
-        <button id="next-button">
+        <button id="next-button" class="footer">
             next
         </button>
         
     </div>
       <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" markerhandler>
       
-      <a-entity scale=".5 .5 .5" rotation="-45 0 0" position="0 0 0">
+      <a-entity scale=".5 .5 .5" rotation="0 0 0" position="0 0 0">
 
         <a-entity geometry="primitive: box; width: 1; height: .2; depth: 1"  material="shader: flat; color: red; transparent: true" rotation="0 270 0"></a-entity>
         
