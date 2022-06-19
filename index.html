@@ -11,58 +11,62 @@
     sessionStorage.clear();
     sessionStorage.clickcount = 0;
 
-        window.onload = function(){
+    window.onload = function(){
 
+    document.querySelector("#last-button").addEventListener("click", (e) => {
+      alert("hey")
+    })
 
-    document.querySelector("#next-button").addEventListener("click", (e)=> {
+    document.querySelector("#next-button").addEventListener("click", (e)=> 
+    {
       if (typeof(Storage) !== "undefined") {
-                      if (sessionStorage.clickcount) {
-                        if(sessionStorage.clickcount == 5)
-                        {
-                          sessionStorage.clickcount = 1;
-                        }
-                        else
-                        {
-                          sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
-                        }
-                      } else {
-                        sessionStorage.clickcount = Number(sessionStorage.clickcount)+1
-                    }}
-                    
-                    //back to front
-                    if(sessionStorage.clickcount == 5) {
-                      
-                      var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
-                      var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
-                      var nextDynamicModel = document.querySelector("#dynamic-model-1");
-                      var nextDynamicText = document.querySelector('#dynamic-text-1');
-                    
+          if (sessionStorage.clickcount) {
+            if(sessionStorage.clickcount == 5)
+            {
+              sessionStorage.clickcount = 1;
+            }
+            else
+            {
+              sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+            }
+          } else {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1
+        }}
+        
+        //back to front
+        if(sessionStorage.clickcount == 5) {
 
-                      console.log("make " + String(sessionStorage.clickcount) + " invisible" );
-                      console.log("make " + String(1) + " VISIBLE" );
+          var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
+          var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
+          var nextDynamicModel = document.querySelector("#dynamic-model-1");
+          var nextDynamicText = document.querySelector('#dynamic-text-1');
+        
 
-                      currentDynamicModel.setAttribute("visible", false)
-                      currentDynamicText.setAttribute("visible", false)
+          console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+          console.log("make " + String(1) + " VISIBLE" );
 
-                      nextDynamicModel.setAttribute("visible", true)
-                      nextDynamicText.setAttribute("visible", true)
-                    }
-                    else {
-                      var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
-                      var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
-                      var nextDynamicModel = document.querySelector("#dynamic-model-" + String(parseInt(sessionStorage.clickcount) + 1));
-                      var nextDynamicText = document.querySelector('#dynamic-text-' + String(parseInt(sessionStorage.clickcount) + 1));
-                    
+          currentDynamicModel.setAttribute("visible", false)
+          currentDynamicText.setAttribute("visible", false)
 
-                      console.log("make " + String(sessionStorage.clickcount) + " invisible" );
-                      console.log("make " + String(parseInt(sessionStorage.clickcount) + 1) + " VISIBLE" );
+          nextDynamicModel.setAttribute("visible", true)
+          nextDynamicText.setAttribute("visible", true)
+        }
+        else {
+          var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
+          var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
+          var nextDynamicModel = document.querySelector("#dynamic-model-" + String(parseInt(sessionStorage.clickcount) + 1));
+          var nextDynamicText = document.querySelector('#dynamic-text-' + String(parseInt(sessionStorage.clickcount) + 1));
+        
 
-                      currentDynamicModel.setAttribute("visible", false)
-                      currentDynamicText.setAttribute("visible", false)
+          console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+          console.log("make " + String(parseInt(sessionStorage.clickcount) + 1) + " VISIBLE" );
 
-                      nextDynamicModel.setAttribute("visible", true)
-                      nextDynamicText.setAttribute("visible", true)
-                    }
+          currentDynamicModel.setAttribute("visible", false)
+          currentDynamicText.setAttribute("visible", false)
+
+          nextDynamicModel.setAttribute("visible", true)
+          nextDynamicText.setAttribute("visible", true)
+        }
 })
           
           
@@ -77,10 +81,17 @@
   <body style="margin : 0px; overflow: hidden;">
     
     <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> 
-      <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+
+      <div style='position: fixed; top: 10px; left: -50px; width:100%; text-align: center; z-index: 1;'>
+        <button id="last-button">
+            last
+        </button>
+    </div>
+      <div style='position: fixed; bottom: 100px; width:100%; text-align: center; z-index: 1;'>
         <button id="next-button">
             next
         </button>
+        
     </div>
       <a-marker type="barcode" value="0" emitevents="true" id="animated-marker" markerhandler>
       
@@ -129,22 +140,15 @@
 
       
 
-            <a-entity id="dynamic-model-5" gltf-model="src: url(objects/backflip.gltf);" scale="25 25 25"  position="0 .2 0" animation-mixer rotation="0 0 0" cycle-count visible="false"></a-entity>
-            <a-text value="Hello, World5!"
-              position="-.6 1.9 0"
-              id="dynamic-text-5"
-              visible="false"
-              ></a-text>
+          <a-entity id="dynamic-model-5" gltf-model="src: url(objects/backflip.gltf);" scale="25 25 25"  position="0 .2 0" animation-mixer rotation="0 0 0" cycle-count visible="false"></a-entity>
+          <a-text value="Hello, World5!"
+            position="-.6 1.9 0"
+            id="dynamic-text-5"
+            visible="false"
+            ></a-text>
 
           <a-entity id="dynamic-model-6" gltf-model="src: url(objects/waveToScale.gltf);" scale="26 26 26"  position="0 .2 0" animation-mixer="clip: *; clampWhenFinished: true;" rotation="0 0 0" cycle-count 
           visible="false"></a-entity>
-         
-
-         
-
-          
-
-        
     </a-entity>
       
       
