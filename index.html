@@ -22,7 +22,7 @@
     {
       if (typeof(Storage) !== "undefined") {
           if (sessionStorage.clickcount) {
-            if(sessionStorage.clickcount == 10)
+            if(sessionStorage.clickcount == 5)
             {
               sessionStorage.clickcount = 1;
             }
@@ -35,7 +35,7 @@
         }}
         
         //back to front
-        if(sessionStorage.clickcount == 10) {
+        if(sessionStorage.clickcount == 5) {
           var nextButton = document.querySelector("img");
             nextButton.setAttribute("src", "https://memsworld.b-cdn.net/NYC/AR/general/next.png")
 
@@ -47,8 +47,8 @@
           var nextDynamicText = document.querySelector('#dynamic-text-1');
         
 
-          console.log("make " + String(sessionStorage.clickcount) + " invisible" );
-          console.log("make " + String(1) + " VISIBLE" );
+          //console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+          //console.log("make " + String(1) + " VISIBLE" );
 
           //currentDynamicModel.setAttribute("visible", false)
           currentDynamicText.setAttribute("visible", false)
@@ -57,7 +57,7 @@
           nextDynamicText.setAttribute("visible", true)
         }
         else {
-          if(sessionStorage.clickcount == 9) {     
+          if(sessionStorage.clickcount == 4) {     
             var nextButton = document.querySelector("img");
             nextButton.setAttribute("src", "https://memsworld.b-cdn.net/NYC/AR/general/startOver.png")
           }
@@ -67,8 +67,8 @@
           var nextDynamicText = document.querySelector('#dynamic-text-' + String(parseInt(sessionStorage.clickcount) + 1));
         
 
-          console.log("make " + String(sessionStorage.clickcount) + " invisible" );
-          console.log("make " + String(parseInt(sessionStorage.clickcount) + 1) + " VISIBLE" );
+          //console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+          //console.log("make " + String(parseInt(sessionStorage.clickcount) + 1) + " VISIBLE" );
 
           //currentDynamicModel.setAttribute("visible", false)
           currentDynamicText.setAttribute("visible", false)
@@ -119,7 +119,7 @@
         <a-entity id="dynamic-model-1" gltf-model="src: url(objects/wave.gltf);" scale="26 26 26"  position="0 .2 0" rotation="0 0 0" cycle-count 
         visible="false" animation-mixer="clip: *; clampWhenFinished: true;"></a-entity>
 
-          <!--<a-image src="https://memsworld.b-cdn.net/NYC/AR/general/floor.png" position="0 0 0" scale="1.5 1.5 1.5" rotation="90 0 0"></a-image>-->
+          <a-image src="https://memsworld.b-cdn.net/NYC/AR/general/floor.png" position="0 3 0" scale="1.5 1.5 1.5" rotation="90 0 0"></a-image>
           <a-image src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/mem.png" position="0 1 .3" scale="1.5 1.5 1.5"></a-image>
           <!--<a-image src="https://memsworld.b-cdn.net/NYC/AR/general/clouds_backup.png" position="0 2.5 -.3" scale="2 2 2"></a-image>-->
           <a-image id="dynamic-text-1" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/1.png" position=".5 2 .5" visible="true"></a-image>
@@ -127,12 +127,6 @@
           <a-image id="dynamic-text-3" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/3.png" position=".5 2 .5" visible="false"></a-image>
           <a-image id="dynamic-text-4" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/4.png" position=".5 2 .5" visible="false"></a-image>
           <a-image id="dynamic-text-5" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/5.png" position=".5 2 .5" visible="false"></a-image>
-
-          <a-image id="dynamic-text-6" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/1.png" position=".5 2 .5" visible="false"></a-image>
-          <a-image id="dynamic-text-7" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/2.png" position=".5 2 .5" visible="false"></a-image>
-          <a-image id="dynamic-text-8" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/3.png" position=".5 2 .5" visible="false"></a-image>
-          <a-image id="dynamic-text-9" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/4.png" position=".5 2 .5" visible="false"></a-image>
-          <a-image id="dynamic-text-10" src="https://memsworld.b-cdn.net/NYC/AR/greetingTable/5.png" position=".5 2 .5" visible="false"></a-image>
           
 
 
