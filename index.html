@@ -13,13 +13,7 @@
     sessionStorage.clear();
     sessionStorage.clickcount = 0;
 
-    window.onload = function(){
-
-    document.querySelector("#last-button").addEventListener("click", (e) => {
-      alert("hey")
-    })
-
-    document.querySelector("#next-button").addEventListener("click", (e)=> 
+    function forwards() 
     {
       if (typeof(Storage) !== "undefined") {
           if (sessionStorage.clickcount) {
@@ -37,6 +31,10 @@
         
         //back to front
         if(sessionStorage.clickcount == 5) {
+          var nextButton = document.querySelector("img");
+            nextButton.setAttribute("src", "pngs/next.png")
+
+          var nextButton = document.querySelector("#dynamic-model-1");
 
           var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
           var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
@@ -54,6 +52,12 @@
           nextDynamicText.setAttribute("visible", true)
         }
         else {
+          if(sessionStorage.clickcount == 4) {
+            
+            var nextButton = document.querySelector("img");
+            nextButton.setAttribute("src", "pngs/startOver.png")
+           // nextButton.setAttribute("src", "pngs/last.png")
+          }
           var currentDynamicModel = document.querySelector("#dynamic-model-" + String(sessionStorage.clickcount));
           var currentDynamicText = document.querySelector('#dynamic-text-' + String(sessionStorage.clickcount));
           var nextDynamicModel = document.querySelector("#dynamic-model-" + String(parseInt(sessionStorage.clickcount) + 1));
@@ -69,8 +73,13 @@
           nextDynamicModel.setAttribute("visible", true)
           nextDynamicText.setAttribute("visible", true)
         }
-      })
+      }
 
+    window.onload = function(){
+
+
+
+    
       
           
           
@@ -83,6 +92,11 @@
  
   
   <body style="margin : 0px; overflow: hidden;">
+
+    
+    <!--<div class="hooderContainer"> 
+      <img src="pngs/footer_logo.png" class="headerButton" id="#next-button" onclick="forwards()">
+    </div>-->
     
     <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> 
 
@@ -158,22 +172,17 @@
     </a-scene>
 
     <div style="position:absolute; top:0px; left:0px; z-index:1000;">
+
       
   </div>
 
-  <div class="footerContainer">
-
-      <img src="pngs/last.png" class="footerButton" id="#last-button" onclick="alert('test')">
-
   
-      <img src="pngs/next.png" class="footerButton" id="#last-button">
-    
+    <div class="footerContainer"> 
+      <img src="pngs/next.png" class="footerButton" id="#next-button" onclick="forwards()">
+    </div>
 
-
-
-   
-    
-</div>
-
+    <div class="headerContainer"> 
+      <img src="pngs/header_logo.png" class="headerButton" id="#next-button" onclick="forwards()">
+    </div>
   </body>
 </html>
