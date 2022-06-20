@@ -22,7 +22,7 @@
     {
       if (typeof(Storage) !== "undefined") {
           if (sessionStorage.clickcount) {
-            if(sessionStorage.clickcount == 5)
+            if(sessionStorage.clickcount == 10)
             {
               sessionStorage.clickcount = 1;
             }
@@ -47,8 +47,8 @@
           var nextDynamicText = document.querySelector('#dynamic-text-1');
         
 
-          //console.log("make " + String(sessionStorage.clickcount) + " invisible" );
-          //console.log("make " + String(1) + " VISIBLE" );
+          console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+          console.log("make " + String(1) + " VISIBLE" );
 
           //currentDynamicModel.setAttribute("visible", false)
           currentDynamicText.setAttribute("visible", false)
@@ -67,8 +67,8 @@
           var nextDynamicText = document.querySelector('#dynamic-text-' + String(parseInt(sessionStorage.clickcount) + 1));
         
 
-          //console.log("make " + String(sessionStorage.clickcount) + " invisible" );
-          //console.log("make " + String(parseInt(sessionStorage.clickcount) + 1) + " VISIBLE" );
+          console.log("make " + String(sessionStorage.clickcount) + " invisible" );
+          console.log("make " + String(parseInt(sessionStorage.clickcount) + 1) + " VISIBLE" );
 
           //currentDynamicModel.setAttribute("visible", false)
           currentDynamicText.setAttribute("visible", false)
